@@ -1,0 +1,114 @@
+<%- include('header') -%>
+    <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body>
+        <!-- Layout wrapper -->
+        <div class="layout-wrapper layout-content-navbar">
+            <div class="layout-container">
+                <!-- Layout container -->
+                <div class="layout-page">
+                    <!-- Navbar -->
+                    <nav class="navbar navbar-example navbar-expand-lg navbar-light bg-light mt-3">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="/">Auditorium Booking System</a>
+                            <div class="collapse navbar-collapse" id="navbar-ex-2">
+                                <ul class="navbar-nav ms-auto">
+                                    <li><a class="nav-item nav-link" href="./">Home</a></li>
+                                    <li><a class="nav-item nav-link" href="./about-us">About Us</a></li>
+                                    <li><a class="nav-item nav-link active" href="./contact-us">Contact Us</a></li>
+                                    <li><a class="nav-item nav-link" href="./login">Login</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <!-- / Navbar -->
+
+                    <!-- Content wrapper -->
+                    <div class="content-wrapper">
+                        <!-- Content -->
+
+                        <div class="container-xxl flex-grow-1 container-p-y px-0">
+                            <div class="col-xxl">
+                                <div class="d-flex justify-content-center display-6 mb-4">Create Account</div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-lg-6">
+                                        <div class="card mb-12">
+                                            <div class="card-body">
+                                                <form action="" method="post">
+                                                    <div class="row mb-3">
+                                                        <label class="col-sm-2 col-form-label" for="Full-Name">Full
+                                                            Name</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="input-group input-group-merge">
+                                                                <input type="text" class="form-control" id="Full-Name"
+                                                                    placeholder="full name" aria-label="Full Name"
+                                                                    name="fullName" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-sm-2 col-form-label"
+                                                            for="Username">Username</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="input-group input-group-merge">
+                                                                <input type="text" class="form-control" id="Username"
+                                                                    placeholder="username" aria-label="User Name"
+                                                                    name="username" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-sm-2 col-form-label" for="Email">Email</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="input-group input-group-merge">
+                                                                <input type="email" class="form-control" id="Email"
+                                                                    placeholder="email" aria-label="Email"
+                                                                    name="email" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-sm-2 col-form-label"
+                                                            for="Password">Password</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="input-group input-group-merge">
+                                                                <input type="password" class="form-control"
+                                                                    id="Password" placeholder="password"
+                                                                    aria-label="Password" name="password" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label class="col-sm-2 col-form-label"
+                                                            for="RE-Enter Password">RE-Enter Password</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="input-group input-group-merge">
+                                                                <input type="password" class="form-control"
+                                                                    id="RE-Enter Password"
+                                                                    placeholder="re-enter password"
+                                                                    aria-label="RE-Enter Password"
+                                                                    name="reEnterPassword" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <div class="col-sm-10">
+                                                            <div class="input-group input-group-merge">
+                                                                <!-- <textarea type="text" id="tiny" class="form-control" placeholder="text Editor" aria-label="Text Editor"></textarea> -->
+                                                                <button type="submit" class="btn btn-primary"
+                                                                    id="submit" name="submit"
+                                                                    value="submit">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <%- include('footer') -%>

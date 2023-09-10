@@ -1,0 +1,306 @@
+<%- include("adminHeader") -%>
+    </head>
+
+    <body>
+        <!-- Layout wrapper -->
+        <div class="layout-wrapper layout-content-navbar">
+            <div class="layout-container">
+                <!-- Menu -->
+
+                <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                    <div class="app-brand demo">
+                        <a href="./" class="app-brand-link">
+                            <span class="menu-text fw-bolder ms-2" style="font-size: 18px;">RGUKT Auditorium Booking
+                                System</span>
+                        </a>
+                    </div>
+                    <ul class="menu-inner py-1">
+                        <li class="menu-item active">
+                            <a href="./book-auditorium" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">Book Auditorium</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="./" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">View Events</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-bs-toggle="modal" data-bs-target="#modalCenter">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">Logout</div>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+                <!-- / Menu -->
+
+                <!-- Layout container -->
+                <div class="layout-page">
+                    <!-- Content wrapper -->
+                    <div class="content-wrapper">
+                        <!-- Content -->
+                        <div class="container-xxl flex-grow-1 container-p-y">
+                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Auditorium /</span> Book
+                                Auditorium</h4>
+                            <div class="col-xxl">
+                                <div class="card mb-4">
+                                    <div class="card-header d-flex align-items-center justify-content-between">
+                                        <h5 class="mb-0">Book Auditorium</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div style="display: <%= primaryForm === true ? 'block' : 'none' %>;">
+                                            <form action="./noOfSeats" method="post">
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label"
+                                                        for="StoreMainCategory">Auditorium</label>
+                                                    <div class="col-sm-8">
+                                                        <div class="input-group input-group-merge">
+                                                            <% var x=auditoriumNames.length; %>
+                                                                <select name="storemaincategory" id="storemaincategory"
+                                                                    style="width:100%" value=""
+                                                                    class="p-2 border-secondary rounded text-secondary">
+                                                                    <% auditoriumNames.forEach(function(name){ %>
+                                                                        <option value="<%= name.auditoriumName %>">
+                                                                            <%= name.auditoriumName.toUpperCase() %>
+                                                                        </option>
+                                                                        <% }) %>
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <button class="btn btn-outline-primary rounded"
+                                                            id="noOfSeatsButton" type="submit">Get Seats</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div style="display: <%= primaryForm === false ? 'block' : 'none' %>;">
+                                            <form action="./book-auditorium" method="post">
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label" for="Title">Title</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <input type="text" class="form-control" id="Title"
+                                                                placeholder="Title" aria-label="Title" name="Title" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label" for="Start Date">Start
+                                                        Date</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="row">
+                                                            <div class="col-5">
+                                                                <div class="input-group input-group-merge">
+                                                                    <input type="date" class="form-control"
+                                                                        id="Start Date" placeholder="date"
+                                                                        aria-label="Start Date" name="startDate" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-7">
+                                                                <div class="row mb-3">
+                                                                    <label class="col-sm-2 col-form-label"
+                                                                        for="Start Timing">Timing</label>
+                                                                    <div class="col-sm-10">
+                                                                        <div class="input-group input-group-merge">
+                                                                            <input type="time" class="form-control"
+                                                                                id="Start Timing" placeholder="date"
+                                                                                aria-label="Start Timing"
+                                                                                name="startTiming" value="12:30:00" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label" for="End Date">End
+                                                        Date</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="row">
+                                                            <div class="col-5">
+                                                                <div class="input-group input-group-merge">
+                                                                    <input type="date" class="form-control"
+                                                                        id="End Date" placeholder="date"
+                                                                        aria-label="End Date" name="endDate" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-7">
+                                                                <div class="row mb-3">
+                                                                    <label class="col-sm-2 col-form-label"
+                                                                        for="End Timing">Timing</label>
+                                                                    <div class="col-sm-10">
+                                                                        <div class="input-group input-group-merge">
+                                                                            <input type="time" class="form-control"
+                                                                                id="End Timing" placeholder="date"
+                                                                                aria-label="End Timing" name="endTiming"
+                                                                                value="12:30:00" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label for="TagifyBasic"
+                                                        class="form-label col-sm-2 col-form-label">Add Guests</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <input id="TagifyBasic" class="form-control"
+                                                                style="display: none;" name="guests" value=""
+                                                                placeholder="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label" for="Seats">Seats</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <input class="form-control d-inline-block mt-2"
+                                                                type="number" min="1" max="<%= secondaryForm %>"
+                                                                step="1" id="slider-input"
+                                                                placeholder="<%= secondaryForm %> seats available"
+                                                                name="bookedSeats" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label"
+                                                        for="Occussion">Occassion</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <input type="text" class="form-control" id="Occussion"
+                                                                placeholder="occussion" aria-label="Occussion"
+                                                                name="ocassion" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" name="availableSeats" value="<%= secondaryForm %>">
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label" for="Meta Description">Meta
+                                                        description</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <textarea type="text" id="meta-description"
+                                                                class="form-control" maxlength="161"
+                                                                placeholder="Meta Description"
+                                                                aria-label="Meta Description"
+                                                                name="description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <label class="col-sm-2 col-form-label" for="image">Image</label>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <input type="file" id="image" class="form-control"
+                                                                name="bannerImage" />
+                                                        </div>
+                                                        <div class="form-text">Image Size : 100px x 100px</div>
+                                                    </div>
+
+                                                    <div class="d-flex justify-content-between mb-3">
+                                                        <div>
+                                                            <div class="input-group input-group-merge">
+                                                                <!-- <textarea type="text" id="tiny" class="form-control" placeholder="text Editor" aria-label="Text Editor"></textarea> -->
+                                                                <button type="submit" class="btn btn-primary"
+                                                                    id="submit" name="submit"
+                                                                    value="submit">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="<%= submitted === true ? 'd-block' : 'd-none' %>">
+                                                            <div class="mt-3">
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button"
+                                                                    class="btn <%= status === true ? 'btn-success' : 'btn-danger' %>"
+                                                                    data-bs-toggle="modal" data-bs-target="#basicModal">
+                                                                    Status
+                                                                </button>
+
+                                                                <!-- Modal -->
+                                                                <div class="modal fade" id="basicModal" tabindex="-1"
+                                                                    aria-hidden="true">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"
+                                                                                    id="exampleModalLabel1">Status</h5>
+                                                                                <button type="button" class="btn-close"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="row">
+                                                                                    <%if(statusDisplayText===''){%>
+                                                                                        <p
+                                                                                            class="fw-bold fs-6 text-danger">
+                                                                                            Auditorium
+                                                                                            Booked on
+                                                                                            that dates</p>
+                                                                                        <%}%>
+                                                                                            <%if(statusDisplayText!==''){%>
+                                                                                                <p>
+                                                                                                    <span>Booked
+                                                                                                        Auditorium
+                                                                                                        from</span>
+                                                                                                    <span
+                                                                                                        class="fw-bold fs-6 text-dark">
+                                                                                                        <%=statusDisplayText.startDate
+                                                                                                            %>
+                                                                                                    </span>
+                                                                                                    <span
+                                                                                                        class="fw-bold fs-6 text-dark">
+                                                                                                        <%=statusDisplayText.startTiming
+                                                                                                            %>
+                                                                                                    </span>
+                                                                                                    to
+                                                                                                    <span
+                                                                                                        class="fw-bold fs-6 text-dark">
+                                                                                                        <%=statusDisplayText.endDate
+                                                                                                            %>
+                                                                                                    </span>
+                                                                                                    <span
+                                                                                                        class="fw-bold fs-6 text-dark">
+                                                                                                        <%=statusDisplayText.endTiming
+                                                                                                            %>
+                                                                                                    </span>
+                                                                                                </p>
+                                                                                                <%}%>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalCenterTitle">Do you want to Logout</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+                                        <a href="/" class="btn btn-primary">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / Content -->
+                        <%- include("adminFooter") -%>

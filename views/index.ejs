@@ -1,0 +1,182 @@
+<%- include("header") -%>
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+          <nav class="navbar navbar-example navbar-expand-lg navbar-light bg-light mt-3">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">Auditorium Booking System</a>
+              <div class="collapse navbar-collapse" id="navbar-ex-2">
+                <ul class="navbar-nav ms-auto">
+                  <li><a class="nav-item nav-link active" href="./">Home</a></li>
+                  <li><a class="nav-item nav-link" href="./about-us">About Us</a></li>
+                  <li><a class="nav-item nav-link" href="./contact-us">Contact Us</a></li>
+                  <li><a class="nav-item nav-link" href="./login">Login</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y px-0">
+              <div class="col-xxl">
+                <div class="row <%= status === false ? 'd-none' : 'd-block' %> mb-4">
+                  <div class="col-md">
+                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                      <ol class="carousel-indicators">
+                        <% var i=0; %>
+                          <% eventLists.forEach(function(event){ %>
+                            <li data-bs-target="#carouselExample" data-bs-slide-to="<%= i %>"
+                              class="<%= i===0 ? 'active': ''%>"></li>
+                            <% i++; %>
+                              <% }) %>
+                      </ol>
+                      <div class="carousel-inner">
+                        <% var j=0; %>
+                          <% eventLists.forEach(function(event){ %>
+                            <div class="carousel-item <%= j===0 ? 'active': ''%>">
+                              <div class="card bg-secondary" style="height: 60vh">
+                                <div class="card-body" style="padding: 4rem;">
+                                  <div class="row">
+                                    <div class="col-lg-6">
+                                      <img class="card-img card-img-left h-100 w-100"
+                                        src="/images/<%= event.bannerImage %>" alt="Card image" />
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <p class="fs-4 text-white fw-bold">
+                                        <%= event.Title.toUpperCase() %>
+                                      </p>
+                                      <p><span class="fs-6 fw-bold text-dark"
+                                          style="background-color: white;">Guests:</span>
+                                        <% event.guests.forEach(function(guest){ %>
+                                          <span span class="text-white fw-bold">
+                                            <%= guest.value %>,
+                                          </span>
+                                          <% }) %>
+                                            <span>.</span>
+                                      </p>
+                                      <p><span class="fs-6 fw-bold text-dark"
+                                          style="background-color: white;">Ocassion:</span>
+                                        <span class="text-white fw-bold">
+                                          <%= event.ocassion %>
+                                        </span>
+                                      </p>
+                                      <p class="mb-5"><span class="fs-6 fw-bold text-dark"
+                                          style="background-color: white;">Venue:</span>
+                                        <span class="text-white fw-bold">
+                                          <%= event.auditoriumName %>
+                                        </span>
+                                      </p>
+                                      <div class="row">
+                                        <div class="col-lg-6">
+                                          <p class="mb-1 text-white" style="font-size: .8rem;">Start Date and Timing</p>
+                                          <p class="fw-bold fs-5 text-dark" style="background-color: white;"">
+                                            <%= event.sDate %>
+                                            <%= event.startTiming %>
+                                        </p>
+                                      </div>
+                                      <div class=" col-lg-6">
+                                          <p class="mb-1 text-white" style="font-size: .8rem;">End Date and Timing</p>
+                                          <p class="fw-bold fs-5 text-dark" style="background-color: white;">
+                                            <%= event.eDate %>
+                                              <%= event.endTiming %>
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <p class=" mt-4 text-white">
+                                    <%= event.description %>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <% j++; %>
+                              <% }) %>
+                      </div>
+                      <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card mb-12">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md">
+                        <div class="card mb-3">
+                          <div class="row g-0">
+                            <div class="col-md-7">
+                              <img class="card-img card-img-left" src="../images/bgimg.jpg"
+                                alt="Card image" />
+                            </div>
+                            <div class="col-md-5">
+                              <div class="card-body">
+                                <h5 class="card-title">Auditorium Booking System</h5>
+                                <p class="card-text">
+                                  An auditorium booking system is a software or online platform that facilitates
+                                  the
+                                  reservation and management of auditoriums for various events and functions. It
+                                  streamlines the process of booking, scheduling, and organizing the use of an
+                                  auditorium, ensuring efficient utilization of the space.
+                                </p>
+                              </div>
+                              <div class="container">
+                                <div class="row p-4">
+                                  <div class="col-lg-4 col-md-12 mb-6 mb-lg-0">
+                                    <img src="../images/ab1audit.jpg"
+                                      class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+                                    <img src="../images/ab-2.jpg"
+                                      class="w-100 shadow-1-strong rounded mb-4" alt="Wintry Mountain Landscape" />
+                                    <img src="../includes/assets/img/elements/img3.jpg"
+                                      class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
+                                  </div>
+
+                                  <div class="col-lg-4 mb-4 mb-lg-0">
+                                    <img src="../includes/assets/img/elements/img2.jpg"
+                                      class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
+                                    <img src="../images/sac5.jpg"
+                                      class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
+                                    <img src="../images/sac4.jpg"
+                                      class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
+                                  </div>
+
+                                  <div class="col-lg-4 mb-4 mb-lg-0">
+                                    <img src="../images/rguktgate.jpg"
+                                      class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
+                                    <img src="../images/sac4.jpg"
+                                      class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
+                                    <img src="../images/ab1audit.jpg"
+                                      class="w-100 shadow-1-strong rounded mb-4" alt="Yosemite National Park" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+            <%- include("footer") -%>

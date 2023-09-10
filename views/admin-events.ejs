@@ -1,0 +1,158 @@
+<%- include("adminHeader") -%>
+
+    </head>
+
+    <body>
+        <!-- Layout wrapper -->
+        <div class="layout-wrapper layout-content-navbar">
+            <div class="layout-container">
+                <!-- Menu -->
+
+                <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                    <div class="app-brand demo">
+                        <a href="./" class="app-brand-link">
+                            <span class="menu-text fw-bolder ms-2" style="font-size: 18px;">RGUKT Auditorium Booking
+                                System</span>
+                        </a>
+                    </div>
+                    <ul class="menu-inner py-1">
+                        <li class="menu-item">
+                            <a href="./add-auditorium" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">Add Auditorium</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="./view" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">View Auditorium</div>
+                            </a>
+                        </li>
+                        <li class="menu-item active">
+                            <a href="./" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">View Events</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="./view-feedbacks" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">View Feedbacks</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-bs-toggle="modal" data-bs-target="#modalCenter">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">Logout</div>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+                <!-- / Menu -->
+
+                <!-- Layout container -->
+                <div class="layout-page">
+                    <!-- Content wrapper -->
+                    <div class="content-wrapper">
+                        <!-- Content -->
+
+                        <div class="container-xxl container-p-y">
+                            <div class="col-lg-12 mb-4 order-0">
+                                <form action="./deleteEvent" method="post">
+                                    <% eventLists.forEach(function(event){ %>
+                                        <div class="card mb-4">
+                                            <div class="card-header d-flex justify-content-between">
+                                                <div class="card-action-title">Remove Card</div>
+                                                <div class="card-action-element">
+                                                    <ul class="list-inline mb-0">
+                                                        <li class="list-inline-item">
+                                                            <button type="submit"
+                                                                class="btn bg-transparent text-primary" name="id"
+                                                                value="<%= event._id %>"><i
+                                                                    class="tf-icons bx bx-x"></i></button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <img class="card-img card-img-left h-100 w-100"
+                                                            src="/images/<%= event.bannerImage %>" alt="Card image" />
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <p class="fs-4 text-dark fw-bold">
+                                                            <%= event.Title.toUpperCase() %>
+                                                        </p>
+                                                        <p><span class="fs-6 fw-bold text-dark">Guests:</span>
+                                                            <% event.guests.forEach(function(guest){ %>
+                                                                <span>
+                                                                    <%= guest.value %>,
+                                                                </span>
+                                                                <% }) %>
+                                                                    <span>.</span>
+                                                        </p>
+                                                        <p><span class="fs-6 fw-bold text-dark">Seats Reserved:</span>
+                                                            <span>
+                                                                <%= event.bookedSeats %>
+                                                            </span>
+                                                        </p>
+                                                        <p><span class="fs-6 fw-bold text-dark">Ocassion:</span>
+                                                            <span>
+                                                                <%= event.ocassion %>
+                                                            </span>
+                                                        </p>
+                                                        <p class="mb-5"><span
+                                                                class="fs-6 fw-bold text-dark">Venue:</span>
+                                                            <span>
+                                                                <%= event.auditoriumName %>
+                                                            </span>
+                                                        </p>
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <p class="mb-1" style="font-size: .8rem;">Start Date and
+                                                                    Timing</p>
+                                                                <p class="fw-bold fs-5 text-primary">
+                                                                    <%= event.sDate %>
+                                                                        <%= event.startTiming %>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <p class="mb-1" style="font-size: .8rem;">End Date and
+                                                                    Timing</p>
+                                                                <p class="fw-bold fs-5 text-primary">
+                                                                    <%= event.eDate %>
+                                                                        <%= event.endTiming %>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="mt-4">
+                                                    <%= event.description %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <% }) %>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalCenterTitle">Do you want to Logout</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+                                        <a href="/" class="btn btn-primary">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / Content -->
+                        <%- include("adminFooter") -%>

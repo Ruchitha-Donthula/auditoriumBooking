@@ -1,0 +1,135 @@
+<!-- Footer -->
+<footer class="content-footer footer bg-footer-theme">
+    <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+      <div class="mb-2 mb-md-0">
+        ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        , made with ❤️ by
+        <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">Team Ruchi</a>
+      </div>
+      <div>
+        <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">Github</a>
+        <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">LinkedIn</a>
+
+        <a
+          href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
+          target="_blank"
+          class="footer-link me-4"
+          >Documentation</a
+        >
+
+        <a
+          href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
+          target="_blank"
+          class="footer-link me-4"
+          >Support</a
+        >
+      </div>
+    </div>
+  </footer>
+<!-- / Footer -->
+
+<div class="content-backdrop fade"></div>
+</div>
+<!-- Content wrapper -->
+</div>
+<!-- / Layout page -->
+</div>
+
+<!-- Overlay -->
+<div class="layout-overlay layout-menu-toggle"></div>
+</div>
+<!-- / Layout wrapper -->
+<script src="../../includes/tinymce/tinymce.min.js"></script>
+<script src="../../includes/assets/js/multiselect-dropdown.js"></script>
+<!-- Tinymce Script -->
+<script>
+tinymce.init({
+selector: 'textarea#tiny',
+height: 200,
+resize: 'both',
+max_height: 500,
+plugins: 'advlist autolink lists link image charmap preview anchor pagebreak code visualchars wordcount autoresize',
+contextmenu: 'link image table',
+icons: 'material',
+statusbar: false,
+promotion: false,
+menu: {
+file: {
+title: 'File',
+items: 'newdocument recoupondraft | preview | export print | deleteallconversations'
+},
+edit: {
+title: 'Edit',
+items: 'undo redo | cut copy paste pastetext | selectall | searchreplace'
+},
+view: {
+title: 'View',
+items: 'code | visualaid visualchars visualblocks | spellchecker | preview fullscreen | showcomments'
+},
+insert: {
+title: 'Insert',
+items: 'image link media addcomment pageembed template codesample inserttable | charmap emoticons hr | pagebreak nonbreaking anchor tableofcontents | insertdatetime'
+},
+format: {
+title: 'Format',
+items: 'bold italic underline strikethrough superscript subscript codeformat | styles blocks fontfamily fontsize align lineheight | forecolor backcolor | language | removeformat'
+},
+tools: {
+title: 'Tools',
+items: 'spellchecker spellcheckerlanguage | a11ycheck code wordcount'
+},
+table: {
+title: 'Table',
+items: 'inserttable | cell row column | advtablesort | tableprops deletetable'
+},
+help: {
+title: 'Help',
+items: 'help'
+}
+}
+
+});
+
+tinyMCE.activeEditor.ui.registry.getAll().menuItems;
+// Prevent Bootstrap dialog from blocking focusin
+$(document).on('focusin', function(e) {
+if ($(e.target).closest(".tox-tinymce, .tox-tinymce-aux, .moxman-window, .tam-assetmanager-root").length) {
+e.stopImmediatePropagation();
+}
+});
+// Prevent Bootstrap dialog from blocking focusin
+document.addEventListener('focusin', (e) => {
+if (e.target.closest(".tox-tinymce-aux, .moxman-window, .tam-assetmanager-root") !== null) {
+e.stopImmediatePropagation();
+}
+});
+</script>
+
+<!-- TinyMce Script -->
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script src="../../includes/assets/vendor/libs/jquery/jquery.js"></script>
+<script src="../../includes/assets/vendor/libs/popper/popper.js"></script>
+<script src="../../includes/assets/vendor/js/bootstrap.js"></script>
+<script src="../../includes/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+<script src="../../includes/assets/vendor/js/menu.js"></script>
+<!-- endbuild -->
+
+<!-- Vendors JS -->
+<script src="../../includes/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+<!-- Main JS -->
+<script src="../../includes/assets/js/main.js"></script>
+
+<!-- Page JS -->
+<script src="../../includes/assets/js/dashboards-analytics.js"></script>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+
+</html>

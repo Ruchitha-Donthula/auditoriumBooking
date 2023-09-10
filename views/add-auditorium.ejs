@@ -1,0 +1,140 @@
+<%- include("adminHeader") -%>
+    </head>
+
+    <body>
+        <!-- Layout wrapper -->
+        <div class="layout-wrapper layout-content-navbar">
+            <div class="layout-container">
+                <!-- Menu -->
+
+                <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                    <div class="app-brand demo">
+                        <a href="./" class="app-brand-link">
+                            <span class="menu-text fw-bolder ms-2" style="font-size: 18px;">Auditorium Booking
+                                System</span>
+                        </a>
+                    </div>
+                    <ul class="menu-inner py-1">
+                        <li class="menu-item active">
+                            <a href="./add-auditorium" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">Add Auditorium</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="./view" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">View Auditorium</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="./" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">View Events</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="./view-feedbacks" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">View Feedbacks</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-bs-toggle="modal" data-bs-target="#modalCenter">
+                                <i class="menu-icon tf-icons bx bx-store-alt"></i>
+                                <div data-i18n="Account Settings">Logout</div>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+                <!-- / Menu -->
+
+                <!-- Layout container -->
+                <div class="layout-page">
+                    <!-- Content wrapper -->
+                    <div class="content-wrapper">
+                        <!-- Content -->
+                        <div class="container-xxl flex-grow-1 container-p-y">
+                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Auditorium /</span>Add
+                                Auditorium</h4>
+                            <div class="col-xxl">
+                                <div class="card mb-4">
+                                    <div class="card-header d-flex align-items-center justify-content-between">
+                                        <h5 class="mb-0">Add Auditorium</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <form action="./add-auditorium" method="post">
+                                            <div class="row mb-3">
+                                                <label class="col-sm-2 col-form-label" for="Auditorium-Name">Auditorium
+                                                    Name</label>
+                                                <div class="col-sm-10">
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="text" class="form-control" id="Auditorium-Name"
+                                                            placeholder="auditorium name" aria-label="Auditorium-Name"
+                                                            name="auditoriumName" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label class="col-sm-2 col-form-label" for="Seats">Seats</label>
+                                                <div class="col-sm-10">
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="number" class="form-control" id="Seats"
+                                                            placeholder="total no of seats" aria-label="Seats"
+                                                            name="totalSeats" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label class="col-sm-2 col-form-label" for="Meta Description">Meta
+                                                    description</label>
+                                                <div class="col-sm-10">
+                                                    <div class="input-group input-group-merge">
+                                                        <textarea type="text" id="meta-description" class="form-control"
+                                                            maxlength="161" placeholder="Meta Description"
+                                                            aria-label="Meta Description" name="description"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label class="col-sm-2 col-form-label" for="image">Image</label>
+                                                <div class="col-sm-10">
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="file" id="image" class="form-control"
+                                                            name="auditoriumImage" />
+                                                    </div>
+                                                    <div class="form-text">Image Size : 100px x 100px</div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group input-group-merge">
+                                                            <!-- <textarea type="text" id="tiny" class="form-control" placeholder="text Editor" aria-label="Text Editor"></textarea> -->
+                                                            <button type="submit" class="btn btn-primary" id="submit"
+                                                                name="submit" value="submit">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalCenterTitle">Do you want to Logout</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+                                        <a href="/" class="btn btn-primary">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / Content -->
+                        <%- include("adminFooter") -%>
