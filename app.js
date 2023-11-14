@@ -1,7 +1,7 @@
 const express = require("express");
-const bodyParser=require('body-parser');
-const cors=require('cors');
-const app=express();
+const bodyParser=require('body-parser');//forms
+const cors=require('cors');//security 
+const app=express();//variable
 app.use(express.json());
 const corsOptions={
     credentials: true,

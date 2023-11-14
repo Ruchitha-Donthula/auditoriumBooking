@@ -4,7 +4,8 @@ const app = require('../app');
 const { homeController } = require('../controllers');
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+
+app.use(express.static('public'));//allowing to use files in public folder
 
 const homeRoute = express.Router();
 homeRoute
